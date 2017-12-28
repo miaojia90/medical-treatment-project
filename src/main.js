@@ -7,7 +7,8 @@ import VueRouter from 'vue-router';
 import App from './app';
 import routes from './routes';
 import store from './vuex/index';
-
+import VueQriously from 'vue-qriously'
+Vue.use(VueQriously);
 Vue.use(Vuex);
 Vue.use(VueRouter);
 

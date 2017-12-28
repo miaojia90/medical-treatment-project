@@ -13,7 +13,6 @@
                     </div>
                     <div class="weui-cell__ft">
                           <button class="weui-vcode-btn spe">获取验证码</button>
-                        <!-- <button class="weui-vcode-btn">获取验证码</button> -->
                     </div>
                 </div>
                 <div class="weui-cell weui-cell_vcode">
@@ -29,6 +28,7 @@
                 <a>保存</a>
             </div>
         </div>
+        
     </section>
 </template>
 <script>

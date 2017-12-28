@@ -12,11 +12,12 @@
     "test": "npm run unit && npm run e2e"
   },
   "dependencies": {
+    "es6-promise": "^4.0.5",
     "vue": "^2.0.1",
-    "vuex": "^2.0.0",
+    "vue-qriously": "^1.1.1",
     "vue-router": "^2.0.1",
-    "whatwg-fetch": "^1.0.0",
-    "es6-promise": "^4.0.5"
+    "vuex": "^2.0.0",
+    "whatwg-fetch": "^1.0.0"
   },
   "devDependencies": {
     "autoprefixer": "^6.4.0",
@@ -78,6 +79,7 @@
     "webpack": "^1.13.2",
     "webpack-dev-middleware": "^1.8.3",
     "webpack-hot-middleware": "^2.12.2",
-    "webpack-merge": "^0.14.1"
+    "webpack-merge": "^0.14.1",
+    "qrious": "^4.0.2"
   }
 }

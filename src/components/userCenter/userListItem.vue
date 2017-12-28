@@ -9,6 +9,15 @@
             </div>
             <div class="weui-cell__ft"></div>
         </router-link>
+        <router-link class="weui-cell weui-cell_access"  :to="{ name: 'otherUserCard', params: { userId: 123 }}">
+            <div class="weui-cell__hd">
+              <img src="../../assets/images/manage.png" alt="">
+            </div>
+            <div class="weui-cell__bd">
+                <p>就诊人管理</p>
+            </div>
+            <div class="weui-cell__ft">3</div>
+        </router-link>
         <router-link class="weui-cell weui-cell_access" :to="{ name: 'healthRecords', params: { userId: 123 }}">
             <div class="weui-cell__hd">
               <img src="../../assets/images/health_records.png" alt="" >

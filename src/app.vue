@@ -81,13 +81,38 @@ body {
     word-break: break-all;
 }
 
+.qriously-small {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
 $r_750:640/750/2/32;
 @function rem($px) {
     @return $px * $r_750 *1rem;
 }
 
+.operate-close-box {
+    display: block;
+    width: rem(360);
+    border: 1px solid #E5E5E5;
+    border-radius: rem(10);
+    font-size: rem(32);
+    color: #2B2B2B;
+    text-align: center;
+    margin: 0 auto;
+    padding: rem(20) 0;
+}
+
 .operate-box {
     padding: rem(40) rem(30);
+    &.green {
+        a {
+            background: #FFF;
+            opacity: 1;
+            color: #27BD59;
+        }
+    }
     a {
         display: block;
         width: 100%;
@@ -145,9 +170,9 @@ $r_750:640/750/2/32;
 }
 
 .weui-cell__hd {
-    .weui-label{
-       font-size: rem(30);
-       color: #000;
+    .weui-label {
+        font-size: rem(30);
+        color: #000;
     }
     img {
         width: rem(40);
