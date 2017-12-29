@@ -1,10 +1,11 @@
 <template>
     <section class="userCenter">
-       <UserCard></UserCard>
-       <UserListItem></UserListItem>
+       <UserCard :userCenterInfo="userCenterInfo"></UserCard>
+       <UserListItem :userCenterInfo="userCenterInfo"></UserListItem>
     </section>
 </template>
 <script>
+import { mapState, mapActions } from 'vuex';
 import UserCard from 'components/userCenter/userCard';
 import UserListItem from 'components/userCenter/userListItem';
 export default {
@@ -13,12 +14,22 @@ export default {
             headTitle: ''
         }
     },
+    created() {
+        //获取接口数据
+        this.getUserCenterData();
+    },
     methods: {
+        async getUserCenterData() {
+            let userId = this.$route.params.userId;
+            await this.getUserCenterInfo();
+        },
+        ...mapActions([
+            'getUserCenterInfo'
+        ])
     },
     mounted() {
        
     },
-
     components: {UserCard,UserListItem}
 } 
 </script>

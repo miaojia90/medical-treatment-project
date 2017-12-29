@@ -15,7 +15,9 @@
                 <div class="desc">点击出示就诊二维码</div>
             </div>
         </div>
+        <transition name="fade">
         <UserCode v-if="showBigCode" @eventCallBack="eventCallBack"></UserCode>
+        </transition>
     </section>
 </template>
 <script>
@@ -122,5 +124,12 @@ $r_750:640/750/2/32;
         background-image: -webkit-linear-gradient(to top, #4343E8, #164DBA);
         background-image: linear-gradient(to top, #4343E8, #164DBA);
     }
+}
+/*过渡动画*/
+.fade-enter-active, .fade-leave-active {
+  transition: opacity 1s;
+}
+.fade-enter, .fade-leave-to {
+  opacity: 0;
 }
 </style>

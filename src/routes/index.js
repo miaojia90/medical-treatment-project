@@ -2,11 +2,11 @@
  * @file
  * Created by major on 17/12/29.
  */
-const userCenter = r => require(['views/userCenter'], r);
-const userInfo = r => require(['views/userInfo'], r);
-const healthRecords = r => require(['views/healthRecords'], r);
-const userEdit = r => require(['components/userCenter/userEdit'], r);
-const otherUserCard = r => require(['components/userCenter/otherUserCard'], r);
+const userCenter = r => require(['views/userPage/userCenter'], r);
+const userInfo = r => require(['views/userPage/userInfo'], r);
+const healthRecords = r => require(['views/userPage/healthRecords'], r);
+const userEdit = r => require(['views/userPage/userEdit'], r);
+const otherUserCard = r => require(['views/userPage/otherUserCard'], r);
 const NotFound = r => require(['views/notfound'], r);
 
 // 根目录
@@ -19,23 +19,23 @@ const routes = [{
 		name: 'userCenter'
 	}
 }, {
-	path: '/userCenter/:userId',
+	path: '/userCenter/:userId?',
 	component: userCenter,
 	name: 'userCenter'
 }, {
-	path: '/userInfo/:userId',
+	path: '/userInfo/:userId?',
 	component: userInfo,
 	name: 'userInfo'
 }, {
-	path: '/healthRecords/:userId',
+	path: '/healthRecords/:userId?',
 	component: healthRecords,
 	name: 'healthRecords'
 }, {
-	path: '/userEdit/:userId',
+	path: '/userEdit/:userId?',
 	component: userEdit,
 	name: 'userEdit'
 }, {
-	path: '/otherUserCard/:userId',
+	path: '/otherUserCard/:userId?',
 	component: otherUserCard,
 	name: 'otherUserCard'
 }].map(route => {

@@ -2,7 +2,7 @@ import {
 	getUserCenterData
 } from '../service/getData'
 import {
-	GETCOMMUNTYLIST
+	GETUSERCENTERINFO
 } from './mutationTypes.js'
 
 export default {
@@ -12,6 +12,6 @@ export default {
 		state
 	}, userId) {
 		let res = await getUserCenterData(userId);
-		commit(GETCOMMUNTYLIST, res);
+		commit(GETUSERCENTERINFO, res);
 	}
 }

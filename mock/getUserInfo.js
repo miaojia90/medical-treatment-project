@@ -8,24 +8,26 @@ module.exports = {
     response: function(req, res) {
         console.log(req.query.userId);
         var json = {
-            "userId": "1",
+            "userId": "1001",
             "userName": '缪先生',
             "outpatientNumber": '00012745',
             "idNumber": '4**************9',
-            "phone": '13510901409',
-            "type": '深圳医保',
-            "personalFile":{
-               "height":'172',
-               "weight":'53',
-               "bloodType":'B',
-               "smokingSituation":'0',
-               "drinkingSituation":'0'
+            "phone": '135*****09',
+            "type": '1',
+            "typeDesc": '深圳医保',
+            "otherUserCount": 1,
+            "personalFile": {
+                "height": '172cm',
+                "weight": '53kg',
+                "bloodType": 'B型',
+                "smokingSituation": '无抽烟历史',
+                "drinkingSituation": '无喝酒历史'
             },
-            "emergencyContact": [{
+            "emergencyContact": {
                 "contact": '张欣悦',
-                "contactPhone": '135****1409',
+                "contactPhone": '135******09',
                 "relationship": '朋友'
-            }],
+            },
             "otherUserList": [{
                 "userName": "李花花",
                 "userId": "1",
