@@ -66,7 +66,8 @@ export default {
     },
     computed: {
         ...mapState([
-            'userCenterInfo'
+            'userCenterInfo',
+            'userUpdate'
         ])
     },
     mixins: [focus],
@@ -76,7 +77,7 @@ export default {
             this.btnActive = "";
             this.showPrompt = false;
         },
-        updataTelPhone() {
+        async updataTelPhone() {
             if (this.btnActive == "active" && this.showPrompt == false && this.contactPhone.length == 11) {
                 //发送请求更改数据
                 let args = {
@@ -87,8 +88,12 @@ export default {
                         }
                     }
                 };
-                this.updateUserInfo(args);
+                await this.updateUserInfo(args);
             }
+        },
+        async getUserCenterData() {
+            let userId = this.$route.params.userId;
+            await this.getUserCenterInfo(userId);
         },
         ...mapActions([
             'updateUserInfo'
@@ -98,6 +103,16 @@ export default {
          this.contactPhoneLbl=this.userCenterInfo.emergencyContact.contactPhone;
     },
     watch: {
+        userUpdate(value) {
+            if (!value) {
+                return;
+            }else{
+                //判断成功 重新请求一下数据
+                if(value.resultState==1){
+                   this.getUserCenterData();
+                }
+            }
+        },
         contactPhone(value) {
             this.showPrompt = false;
             this.contactPhoneLbl=this.userCenterInfo.emergencyContact.contactPhone;

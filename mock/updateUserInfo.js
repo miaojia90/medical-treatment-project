@@ -8,6 +8,7 @@ module.exports = {
     response: function(req, res) {
         console.log("请求的数据updateUserInfo", req);
         var json = {
+            "resultState": '1',
             "userId": "1001",
             "userName": '缪先生',
             "outpatientNumber": '00012745',
