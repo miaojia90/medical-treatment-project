@@ -144,6 +144,7 @@ $r_750:640/750/2/32;
 }
 
 .weui-cell {
+    position: relative;
     padding: rem(34) rem(44);
     &.no-padding {
         padding: 0;

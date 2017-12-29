@@ -9,13 +9,13 @@
         </div>
         <div class="card-box  weui-flex">
             <div class="content-box  weui-flex__item">
-                <div class="userName"><span>李珊珊</span><span class="mark orange">自费</span></div>
+                <div class="userName"><span>黎光明</span><span class="mark orange">自费</span></div>
                 <div class="code"><span>就诊卡号:</span><span class="code-value">00012745</span></div>
             </div>
         </div>
         <div class="card-box weui-flex">
             <div class="content-box  weui-flex__item">
-                <div class="userName"><span>李珊珊</span><span class="mark blue">医保</span></div>
+                <div class="userName"><span>缪博宇</span><span class="mark blue">医保</span></div>
                 <div class="code"><span>就诊卡号:</span><span class="code-value">00012745</span></div>
             </div>
         </div>

@@ -26,7 +26,7 @@ export default {
     methods: {
         async getUserCenterData() {
             let userId = this.$route.params.userId;
-            await this.getUserCenterInfo();
+            await this.getUserCenterInfo(userId);
         },
         ...mapActions([
             'getUserCenterInfo'

@@ -4,16 +4,15 @@
  */
 
 module.exports = {
-    api: '/api/getUserInfo',
+    api: '/api/updateUserInfo',
     response: function(req, res) {
-        console.log("请求的数据getUserInfo", req.query.userId);
+        console.log("请求的数据updateUserInfo", req);
         var json = {
             "userId": "1001",
             "userName": '缪先生',
             "outpatientNumber": '00012745',
             "idNumber": '4**************9',
             "phone": '135*****09',
-            "completePhone": '13510901409',
             "type": '1',
             "typeDesc": '深圳医保',
             "otherUserCount": 3,

@@ -1,8 +1,8 @@
 <template>
     <section class="user-edit">
         <!-- 错误提示区域 -->
-        <div class="head-prompt-msg">
-            <p>请输入正确的手机号码</p>
+        <div class="head-prompt-msg" v-if="showPrompt">
+            <p>{{promptMsg}}</p>
         </div>
         <!-- 填写手机号码 -->
         <div class="add-phone" v-if="false">
@@ -34,30 +34,91 @@
         </div>
         <!-- 修改手机号码 -->
         <div class="edit-phone">
-            <div class="weui-cells weui-cells_form">
+            <div class="weui-cells" :class="[showPrompt==true?'no-margin':'']">
                 <div class="weui-cell weui-cell_vcode">
                     <div class="weui-cell__hd">
-                        <label class="weui-label">135****1409</label>
+                        <label class="weui-label">{{contactPhoneLbl}}</label>
                     </div>
                     <div class="weui-cell__bd">
-                        <input class="weui-input" type="tel" placeholder="请输入手机号">
+                        <input class="weui-input" type="tel" placeholder="请输入手机号" v-focus autofocus="autofocus" maxlength="11" v-model="contactPhone">
                     </div>
+                    <div class="input-close" @click="clearInput"></div>
                 </div>
-                <div class="operate-box">
-                    <a>保存</a>
-                </div>
+            </div>
+            <div class="operate-box">
+                <a :class="btnActive" @click="updataTelPhone">保存</a>
             </div>
         </div>
     </section>
 </template>
 <script>
+import { mapState, mapActions } from 'vuex';
+import { focus } from 'components/common/mixin';
 export default {
     data() {
-        return {}
+        return {
+            showPrompt: false,
+            promptMsg: '请输入正确的手机号码',
+            contactPhone: '',
+            btnActive: '',
+            contactPhoneLbl: null
+        }
     },
-    methods: {},
+    computed: {
+        ...mapState([
+            'userCenterInfo'
+        ])
+    },
+    mixins: [focus],
+    methods: {
+        clearInput() {
+            this.contactPhone = "";
+            this.btnActive = "";
+            this.showPrompt = false;
+        },
+        updataTelPhone() {
+            if (this.btnActive == "active" && this.showPrompt == false && this.contactPhone.length == 11) {
+                //发送请求更改数据
+                let args = {
+                    "userId":this.$route.params.userId,
+                    "parameters":{
+                        "emergencyContact":{
+                            "completePhone":this.contactPhone
+                        }
+                    }
+                };
+                this.updateUserInfo(args);
+            }
+        },
+        ...mapActions([
+            'updateUserInfo'
+        ])
+    },
     mounted() {
-        //生成二维码
+         this.contactPhoneLbl=this.userCenterInfo.emergencyContact.contactPhone;
+    },
+    watch: {
+        contactPhone(value) {
+            this.showPrompt = false;
+            this.contactPhoneLbl=this.userCenterInfo.emergencyContact.contactPhone;
+            if (!value) {
+                return;
+            } else {
+                if (value.length < 11) {
+                    return;
+                }
+            }
+            var myreg = /^(((13[0-9]{1})|(15[0-9]{1})|(18[0-9]{1}))+\d{8})$/;
+            if (!myreg.test(this.contactPhone)) {
+                this.showPrompt = true;
+            } else {
+                if (this.userCenterInfo.emergencyContact.completePhone == this.contactPhone) {
+                    this.contactPhoneLbl = this.contactPhone;
+                }else{
+                    this.btnActive = "active";
+                }
+            }
+        }
     },
     components: {}
 }
@@ -67,18 +128,32 @@ $r_750:640/750/2/32;
 @function rem($px) {
     @return $px * $r_750 *1rem;
 }
-.head-prompt-msg{
-    background: #f00;
-    color:#FFF;
-  padding: rem(34) rem(44);
-    font-size: rem(30);
-    text-align:center;
-}
-    .edit-phone {
-        .weui-label {
-             border-right: 1px solid #e5e5e5;
-             margin-right:rem(20);
-        }
 
+.head-prompt-msg {
+    background: #DC143C;
+    color: #FFF;
+    padding: rem(34) rem(44);
+    font-size: rem(30);
+    text-align: center;
+}
+
+.edit-phone {
+    .weui-label {
+        border-right: 1px solid #e5e5e5;
+        margin-right: rem(20);
     }
+    .weui-cells {
+        &.no-margin {
+            margin-top: 0;
+        }
+    }
+    .input-close {
+        position: absolute;
+        width: rem(30);
+        height: rem(30);
+        right: rem(42);
+        background: url(../../assets/images/close.png) no-repeat;
+        background-size: 100% 100%;
+    }
+}
 </style>
