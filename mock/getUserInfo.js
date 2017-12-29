@@ -15,7 +15,7 @@ module.exports = {
             "phone": '135*****09',
             "type": '1',
             "typeDesc": '深圳医保',
-            "otherUserCount": 1,
+            "otherUserCount": 3,
             "personalFile": {
                 "height": '172cm',
                 "weight": '53kg',

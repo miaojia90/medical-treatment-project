@@ -2,8 +2,8 @@
     <section class="user-card">
         <div class="card-box weui-flex">
             <div class="content-box weui-flex__item">
-                <div class="userName"><span>李珊珊</span><span class="mark">医保</span></div>
-                <div class="code"><span>就诊卡号:</span><span class="code-value">00012745</span></div>
+                <div class="userName"><span>{{userCenterInfo.userName}}</span><span class="mark">{{userCenterInfo.typeDesc}}</span></div>
+                <div class="code"><span>就诊卡号:</span><span class="code-value">{{userCenterInfo.outpatientNumber}}</span></div>
                 <div class="change">
                     <span>切换就诊人</span>
                 </div>
@@ -16,7 +16,7 @@
             </div>
         </div>
         <transition name="fade">
-        <UserCode v-if="showBigCode" @eventCallBack="eventCallBack"></UserCode>
+        <UserCode v-if="showBigCode" @eventCallBack="eventCallBack" :userCenterInfo="userCenterInfo"></UserCode>
         </transition>
     </section>
 </template>
@@ -29,6 +29,7 @@ export default {
            qriouslySize:100
         }
     },
+    props: ['userCenterInfo'],
     methods: {
         showBigCodeFun(){
             this.showBigCode=true;

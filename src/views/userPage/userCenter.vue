@@ -14,6 +14,11 @@ export default {
             headTitle: ''
         }
     },
+    computed: {
+        ...mapState([
+            'userCenterInfo'
+        ])
+    },
     created() {
         //获取接口数据
         this.getUserCenterData();

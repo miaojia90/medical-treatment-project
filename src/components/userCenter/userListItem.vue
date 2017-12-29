@@ -16,7 +16,7 @@
             <div class="weui-cell__bd">
                 <p>就诊人管理</p>
             </div>
-            <div class="weui-cell__ft">3</div>
+            <div class="weui-cell__ft">{{userCenterInfo.otherUserCount}}</div>
         </router-link>
         <router-link class="weui-cell weui-cell_access" :to="{ name: 'healthRecords', params: { userId: 123 }}">
             <div class="weui-cell__hd">
@@ -34,6 +34,7 @@ export default {
     data() {
         return {}
     },
+    props: ['userCenterInfo'],
     methods: {},
     mounted() {
         //生成二维码

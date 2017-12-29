@@ -6,25 +6,25 @@
                 <div class="weui-cell__bd">
                     <p>姓名</p>
                 </div>
-                <div class="weui-cell__ft">秦小*</div>
+                <div class="weui-cell__ft">{{userCenterInfo.userName}}</div>
             </div>
             <div class="weui-cell">
                 <div class="weui-cell__bd">
                     <p>就诊卡</p>
                 </div>
-                <div class="weui-cell__ft">028364758</div>
+                <div class="weui-cell__ft">{{userCenterInfo.outpatientNumber}}</div>
             </div>
             <div class="weui-cell">
                 <div class="weui-cell__bd">
                     <p>手机号</p>
                 </div>
-                <div class="weui-cell__ft">136*******52</div>
+                <div class="weui-cell__ft">{{userCenterInfo.phone}}</div>
             </div>
             <div class="weui-cell">
                 <div class="weui-cell__bd">
                     <p>身份证号</p>
                 </div>
-                <div class="weui-cell__ft">6****************2</div>
+                <div class="weui-cell__ft">{{userCenterInfo.idNumber}}</div>
             </div>
         </div>
         <div class="weui-cells">
@@ -32,7 +32,7 @@
                 <div class="weui-cell__bd">
                     <p>费别</p>
                 </div>
-                <div class="weui-cell__ft">医保</div>
+                <div class="weui-cell__ft">{{userCenterInfo.typeDesc}}</div>
             </div>
         </div>
         <div class="weui-cells__title">紧急联系人信息</div>
@@ -41,19 +41,19 @@
                 <div class="weui-cell__bd">
                     <p>紧急联系人</p>
                 </div>
-                <div class="weui-cell__ft">未填写</div>
+                <div class="weui-cell__ft">{{userCenterInfo.emergencyContact.contact}}</div>
             </router-link>
              <router-link class="weui-cell weui-cell_access" :to="{ name: 'userInfo', params: { userId: 123 }}">
                 <div class="weui-cell__bd">
                     <p>关系</p>
                 </div>
-                <div class="weui-cell__ft">未填写</div>
+                <div class="weui-cell__ft">{{userCenterInfo.emergencyContact.relationship}}</div>
             </router-link>
             <router-link class="weui-cell weui-cell_access" :to="{ name: 'userEdit', params: { userId: 123 }}">
                 <div class="weui-cell__bd">
                     <p>手机号</p>
                 </div>
-                <div class="weui-cell__ft">未填写</div>
+                <div class="weui-cell__ft">{{userCenterInfo.emergencyContact.contactPhone}}</div>
             </router-link>
         </div>
         <div class="operate-box">
@@ -62,10 +62,16 @@
     </section>
 </template>
 <script>
+import { mapState, mapActions } from 'vuex';
 export default {
     data() {
         return {
         }
+    },
+    computed: {
+        ...mapState([
+            'userCenterInfo'
+        ])
     },
     methods: {},
     mounted() {

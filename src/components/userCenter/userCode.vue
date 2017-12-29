@@ -1,8 +1,8 @@
 <template>
     <section class="user-code">
         <div class="user-code-box">
-          <p class="user-name">秦小辉</p>
-          <p class="desc"><span>就诊卡号：</span><span>028364758</span></p>
+          <p class="user-name">{{userCenterInfo.userName}}</p>
+          <p class="desc"><span>就诊卡号：</span><span>{{userCenterInfo.outpatientNumber}}</span></p>
           <div class="line"></div>
           <div id="qrCode" class="qr-code" ref="qrCode">
                 <qriously value="Hello World!" :size="qriouslySize" class="qriously-small" />
@@ -21,6 +21,7 @@ export default {
             qriouslySize:0
         }
     },
+    props: ['userCenterInfo'],
     methods: {
         closeBigCodeFun(){
             this.$emit('eventCallBack', null);
