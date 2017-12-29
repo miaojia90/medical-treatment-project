@@ -37,19 +37,19 @@
         </div>
         <div class="weui-cells__title">紧急联系人信息</div>
         <div class="weui-cells">
-             <router-link class="weui-cell weui-cell_access" :to="{ name: 'userInfo', params: { userId: 123 }}">
+             <a class="weui-cell weui-cell_access" >
                 <div class="weui-cell__bd">
                     <p>紧急联系人</p>
                 </div>
                 <div class="weui-cell__ft">{{userCenterInfo.emergencyContact.contact}}</div>
-            </router-link>
-             <router-link class="weui-cell weui-cell_access" :to="{ name: 'userInfo', params: { userId: 123 }}">
+            </a>
+             <a class="weui-cell weui-cell_access" >
                 <div class="weui-cell__bd">
                     <p>关系</p>
                 </div>
                 <div class="weui-cell__ft">{{userCenterInfo.emergencyContact.relationship}}</div>
-            </router-link>
-            <router-link class="weui-cell weui-cell_access" :to="{ name: 'userEdit', params: { userId: 123 }}">
+            </a>
+            <router-link class="weui-cell weui-cell_access" :to="{ name: 'userEdit', params: { userId: userCenterInfo.userId }}">
                 <div class="weui-cell__bd">
                     <p>手机号</p>
                 </div>
