@@ -1,5 +1,5 @@
 import {
-	getCommunityList
+	getUserCenterData
 } from '../service/getData'
 import {
 	GETCOMMUNTYLIST
@@ -7,12 +7,11 @@ import {
 
 export default {
 	//获取社区信息
-	async getCommunityListInfo({
+	async getUserCenterInfo({
 		commit,
 		state
-	}, communityType) {
-		console.log(communityType);
-		let res = await getCommunityList(communityType);
+	}, userId) {
+		let res = await getUserCenterData(userId);
 		commit(GETCOMMUNTYLIST, res);
 	}
 }

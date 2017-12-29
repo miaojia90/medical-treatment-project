@@ -1,5 +1,5 @@
 import {
-	GETCOMMUNTYLIST
+	GETUSERCENTERINFO
 } from './mutationTypes.js'
 
 import {
@@ -8,15 +8,8 @@ import {
 } from '../utils/mUtils'
 
 export default {
-	//获取社区列表信息
-	[GETCOMMUNTYLIST](state, CommunityListInfo) {
-		// state.communityList = {...CommunityListInfo};
-		state.communityHead = CommunityListInfo;
-		let tempList = CommunityListInfo.topic;
-		state.communityList = [...state.communityList,
-			...tempList
-		];
-		// state.communityList = tempList;
-		console.log(state.communityList);
+	//获取用户的信息
+	[GETUSERCENTERINFO](state, userCenterInfo) {
+		state.userCenterInfo = userCenterInfo;
 	}
 }

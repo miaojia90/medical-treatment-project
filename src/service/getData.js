@@ -4,8 +4,8 @@ import {
 } from '../utils/mUtils'
 
 /**
- * 获取社区列表信息
+ * 获取用户中心信息
  */
-export const getCommunityList = (communityType) => fetch('/api/getCommunityList', {
-	communityType: communityType
+export const getUserCenterData = (userId) => fetch('/api/getUserInfo', {
+	userId: userId
 });

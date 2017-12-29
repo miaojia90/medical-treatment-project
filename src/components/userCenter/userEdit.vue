@@ -1,7 +1,11 @@
 <template>
     <section class="user-edit">
+        <!-- 错误提示区域 -->
+        <div class="head-prompt-msg">
+            <p>请输入正确的手机号码</p>
+        </div>
         <!-- 填写手机号码 -->
-        <div class="edit-phone">
+        <div class="add-phone" v-if="false">
             <div class="weui-cells__title">为了保障安全性，手机验证通过后才可解绑，解绑后不能再查到之前就诊相关记录，请慎重操作</div>
             <div class="weui-cells weui-cells_form">
                 <div class="weui-cell weui-cell_vcode">
@@ -12,7 +16,7 @@
                         <input class="weui-input" type="tel" placeholder="请输入手机号">
                     </div>
                     <div class="weui-cell__ft">
-                          <button class="weui-vcode-btn spe">获取验证码</button>
+                        <button class="weui-vcode-btn spe">获取验证码</button>
                     </div>
                 </div>
                 <div class="weui-cell weui-cell_vcode">
@@ -28,7 +32,22 @@
                 <a>保存</a>
             </div>
         </div>
-        
+        <!-- 修改手机号码 -->
+        <div class="edit-phone">
+            <div class="weui-cells weui-cells_form">
+                <div class="weui-cell weui-cell_vcode">
+                    <div class="weui-cell__hd">
+                        <label class="weui-label">135****1409</label>
+                    </div>
+                    <div class="weui-cell__bd">
+                        <input class="weui-input" type="tel" placeholder="请输入手机号">
+                    </div>
+                </div>
+                <div class="operate-box">
+                    <a>保存</a>
+                </div>
+            </div>
+        </div>
     </section>
 </template>
 <script>
@@ -48,4 +67,18 @@ $r_750:640/750/2/32;
 @function rem($px) {
     @return $px * $r_750 *1rem;
 }
+.head-prompt-msg{
+    background: #f00;
+    color:#FFF;
+  padding: rem(34) rem(44);
+    font-size: rem(30);
+    text-align:center;
+}
+    .edit-phone {
+        .weui-label {
+             border-right: 1px solid #e5e5e5;
+             margin-right:rem(20);
+        }
+
+    }
 </style>

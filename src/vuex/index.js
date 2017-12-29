@@ -7,8 +7,7 @@ import getters from './getters'
 Vue.use(Vuex)
 
 const state = {
-	communityHead: [],
-	communityList: [], // 社区列表信息
+	userCenterInfo: []
 }
 
 export default new Vuex.Store({
