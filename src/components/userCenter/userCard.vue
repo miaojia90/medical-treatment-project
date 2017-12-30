@@ -10,7 +10,7 @@
             </div>
             <div class="code-box weui-flex__item" @click="showBigCodeFun">
                 <div id="qrCode" class="qr-code" ref="qrCode">
-                    <qriously value="Hello World!" :size="qriouslySize" class="qriously-small" />
+                    <qriously :value="userCenterInfo.outpatientNumber" :size="qriouslySize" class="qriously-small" />
                 </div>
                 <div class="desc">点击出示就诊二维码</div>
             </div>

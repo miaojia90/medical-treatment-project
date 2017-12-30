@@ -5,7 +5,7 @@
           <p class="desc"><span>就诊卡号：</span><span>{{userCenterInfo.outpatientNumber}}</span></p>
           <div class="line"></div>
           <div id="qrCode" class="qr-code" ref="qrCode">
-                <qriously value="Hello World!" :size="qriouslySize" class="qriously-small" />
+                <qriously :value="userCenterInfo.outpatientNumber" :size="qriouslySize" class="qriously-small" />
           </div>
          <div class="desc center">出示就诊二维码给医务人员</div>
          <div class="operate-close-box">
